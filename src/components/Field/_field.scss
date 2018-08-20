@@ -1,0 +1,12 @@
+.battleship-c-field {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background-color: #afafaf;
+    border: 1px solid #efefef;
+    box-sizing: border-box;
+
+    &:hover {
+        background-color: #afffaf;
+    }
+}
