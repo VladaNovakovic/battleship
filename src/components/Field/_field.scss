@@ -9,4 +9,16 @@
     &:hover {
         background-color: #afffaf;
     }
+
+    &__is-active{
+        background-color: #ffafaf;
+    }
+
+    &__is-hit {
+        background-color: #ff5d5d;
+    }
+
+    &__is-miss {
+        background-color: #afafff;
+    }
 }

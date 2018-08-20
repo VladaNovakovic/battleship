@@ -4,14 +4,17 @@ import Board from './components/Board/Board';
 
 class App extends Component {
     render() {
+        let activeSubmarines = [['a2'], ['c4', 'b4'], ['b1', 'c1', 'd1', 'e1'], ['e3', 'e4', 'e5']];
+        let hiddenSubmarines = [['e1'], ['d4', 'e4'], ['a1', 'a2', 'a3', 'a4'], ['c1', 'c2', 'c3']];
         return (
-        <div>
-            <WelcomeMessage/>
-            <div className="battleship-c-battlefield">
-                <Board/>
-                <Board/>
+            <div>
+                <WelcomeMessage/>
+                <div className="battleship-c-battlefield">
+                    <Board activeSubmarines={activeSubmarines}/>
+                    <Board hiddenSubmarines={hiddenSubmarines}/>
+                </div>
             </div>
-        </div>);
+        );
     }
 }
 
