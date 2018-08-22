@@ -18,9 +18,12 @@ class TargetBoard extends Component {
 
     render() {
         return (
-            <Board hitSubmarines={this.props.hitSubmarines}
-                   missedShots={this.props.missedShots}
-                   onFieldClick={this.onFieldClick}/>
+            <div className="battleship-c-target-board">
+                <h2 className="battleship-c-target-board__headline">Target board</h2>
+                <Board hitSubmarines={this.props.hitSubmarines}
+                       missedShots={this.props.missedShots}
+                       onFieldClick={this.onFieldClick}/>
+            </div>
         );
     }
 

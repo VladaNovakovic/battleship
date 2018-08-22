@@ -17,7 +17,10 @@ class MyBoard extends Component {
 
     render() {
         return (
-            <Board mySubmarines={this.props.submarines} onFieldClick={this.onFieldClick}/>
+            <div className="battleship-c-my-board">
+                <h2 className="battleship-c-my-board__headline">My submarines</h2>
+                <Board mySubmarines={this.props.submarines} onFieldClick={this.onFieldClick}/>
+            </div>
         );
     }
 
