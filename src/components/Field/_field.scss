@@ -10,15 +10,15 @@
         background-color: #afffaf;
     }
 
-    &__is-active{
+    &__is-my-submarine {
         background-color: #ffafaf;
-    }
-
-    &__is-hit {
-        background-color: #ff5d5d;
     }
 
     &__is-miss {
         background-color: #afafff;
+    }
+
+    &__is-hit {
+        background-color: #ff5d5d;
     }
 }

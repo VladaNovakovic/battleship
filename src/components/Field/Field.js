@@ -4,10 +4,12 @@ import './_field.scss';
 
 class Field extends Component {
     static propTypes = {
-        isActive: PropTypes.bool,
-        isHidden: PropTypes.bool,
+        isHit: PropTypes.bool,
+        isMiss: PropTypes.bool,
+        isMySubmarine: PropTypes.bool,
         row: PropTypes.number,
         column: PropTypes.string,
+        onClick: PropTypes.func,
     };
 
     /**
@@ -15,22 +17,15 @@ class Field extends Component {
      */
     static defaultProps = {
         isActive: false,
-    };
-
-    /**
-     *
-     * React: state
-     */
-    state = {
         isHit: false,
         isMiss: false,
     };
 
     render() {
         let className = 'battleship-c-field';
-        className += `${this.props.isActive ? ' battleship-c-field__is-active' : '' }`;
-        className += `${this.state.isHit ? ' battleship-c-field__is-hit' : '' }`;
-        className += `${this.state.isMiss ? ' battleship-c-field__is-miss' : '' }`;
+        className += `${this.props.isHit ? ' battleship-c-field__is-hit' : '' }`;
+        className += `${this.props.isMiss ? ' battleship-c-field__is-miss' : '' }`;
+        className += `${this.props.isMySubmarine ? ' battleship-c-field__is-my-submarine' : '' }`;
 
         return (
             <div className={className} onClick={this.handleClick}>{this.props.column}{this.props.row}</div>
@@ -38,10 +33,8 @@ class Field extends Component {
     }
 
     handleClick = () => {
-        this.setState({
-            isHit: this.props.isHidden,
-            isMiss: !this.props.isHidden,
-        });
+        console.log('click');
+        this.props.onClick();
     }
 }
 
