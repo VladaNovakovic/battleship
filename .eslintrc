@@ -1,0 +1,7 @@
+{
+  "extends": "@computerrock/eslint-config-react-app",
+  "rules": {
+    "valid-jsdoc": "warn",
+    "require-jsdoc": "off"
+  }
+}

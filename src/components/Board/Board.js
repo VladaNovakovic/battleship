@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Field from '../Field/Field'
+import Field from '../Field/Field';
 import './_board.scss';
 
 class Board extends Component {
@@ -18,31 +18,38 @@ class Board extends Component {
         mySubmarines: [],
         hitSubmarines: [],
         missedShots: [],
+        onFieldClick: () => {},
+    };
+
+    onFieldClick = () => {
+        this.props.onFieldClick();
     };
 
     render() {
-        let columns = ['a', 'b', 'c', 'd', 'e'];
-        let rows = [1, 2, 3, 4, 5];
-        let fields = [];
-        let mySubmarines = this.props.mySubmarines.join();
-        let hitSubmarines = this.props.hitSubmarines.join();
-        let missedShots = this.props.missedShots.join();
+        const columns = ['a', 'b', 'c', 'd', 'e'];
+        const rows = [1, 2, 3, 4, 5];
+        const fields = [];
+        const mySubmarines = this.props.mySubmarines.join();
+        const hitSubmarines = this.props.hitSubmarines.join();
+        const missedShots = this.props.missedShots.join();
 
-        for(let row of rows) {
-            for(let column of columns) {
-                let fieldId = `${column}${row}`;
-                let isMyField = mySubmarines.indexOf(fieldId) >= 0;
-                let isHitField = hitSubmarines.indexOf(fieldId) >= 0;
-                let isMissedShots = missedShots.indexOf(fieldId) >= 0;
+        for (const row of rows) {
+            for (const column of columns) {
+                const fieldId = `${column}${row}`;
+                const isMyField = mySubmarines.indexOf(fieldId) >= 0;
+                const isHitField = hitSubmarines.indexOf(fieldId) >= 0;
+                const isMissedShots = missedShots.indexOf(fieldId) >= 0;
 
                 fields.push(
-                    <Field key={fieldId}
-                           row={row}
-                           column={column}
-                           onClick={this.props.onFieldClick}
-                           isHit={isHitField}
-                           isMySubmarine={isMyField}
-                           isMiss={isMissedShots}/>
+                    <Field
+                        key={fieldId}
+                        row={row}
+                        column={column}
+                        onClick={this.onFieldClick}
+                        isHit={isHitField}
+                        isMySubmarine={isMyField}
+                        isMiss={isMissedShots}
+                    />
                 );
             }
         }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './_field.scss';
 
@@ -7,8 +7,8 @@ class Field extends Component {
         isHit: PropTypes.bool,
         isMiss: PropTypes.bool,
         isMySubmarine: PropTypes.bool,
-        row: PropTypes.number,
-        column: PropTypes.string,
+        row: PropTypes.number.isRequired,
+        column: PropTypes.string.isRequired,
         onClick: PropTypes.func,
     };
 
@@ -16,25 +16,26 @@ class Field extends Component {
      * React: defaultProps
      */
     static defaultProps = {
-        isActive: false,
+        isMySubmarine: false,
         isHit: false,
         isMiss: false,
+        onClick: () => {},
+    };
+
+    handleClick = () => {
+        // console.log('click');
+        this.props.onClick();
     };
 
     render() {
         let className = 'battleship-c-field';
-        className += `${this.props.isHit ? ' battleship-c-field__is-hit' : '' }`;
-        className += `${this.props.isMiss ? ' battleship-c-field__is-miss' : '' }`;
-        className += `${this.props.isMySubmarine ? ' battleship-c-field__is-my-submarine' : '' }`;
+        className += `${this.props.isHit ? ' battleship-c-field__is-hit' : ''}`;
+        className += `${this.props.isMiss ? ' battleship-c-field__is-miss' : ''}`;
+        className += `${this.props.isMySubmarine ? ' battleship-c-field__is-my-submarine' : ''}`;
 
         return (
             <div className={className} onClick={this.handleClick}>{this.props.column}{this.props.row}</div>
         );
-    }
-
-    handleClick = () => {
-        console.log('click');
-        this.props.onClick();
     }
 }
 
