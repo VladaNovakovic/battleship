@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React from 'react';
+import Navigation from '../Navigation/Navigation';
 
-class WelcomeMessage extends Component {
-    render() {
-        return (<h2>Hello there</h2>);
-    }
-}
+const WelcomeMessage = function () {
+    return [(
+        <Navigation key={0} />
+    ), (
+        <h2 key={1}>Hello there</h2>
+        )];
+};
 
 export default WelcomeMessage;

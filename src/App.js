@@ -1,17 +1,18 @@
 import React from 'react';
-import MyBoard from './components/MyBoard/MyBoard';
-import TargetBoard from './components/TargetBoard/TargetBoard';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Battlefield from './components/Battlefield/Battlefield';
+import NewGame from './components/NewGame/NewGame';
+import WelcomeMessage from './components/WelcomeMessage/WelcomeMessage';
 
 const App = function () {
-    const mySubmarines = [['a2'], ['c4', 'b4'], ['b1', 'c1', 'd1', 'e1'], ['e3', 'e4', 'e5']];
-    const hitSubmarines = [['a2'], ['c4', 'b4'], ['b1', 'c1', 'd1', 'e1'], ['e3', 'e4', 'e5']];
-    const missedShots = [['e1'], ['d4', 'e4'], ['a1', 'a2', 'a3', 'a4'], ['c1', 'c2', 'c3']];
-
     return (
-        <div className="battleship-c-battlefield">
-            <MyBoard submarines={mySubmarines} />
-            <TargetBoard missedShots={missedShots} hitSubmarines={hitSubmarines} />
-        </div>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/game" component={Battlefield} />
+                <Route path="/new-game" component={NewGame} />
+                <Route path="/" component={WelcomeMessage} />
+            </Switch>
+        </BrowserRouter>
     );
 };
 
