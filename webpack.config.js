@@ -3,7 +3,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let autoprefixer = require('autoprefixer');
 
 module.exports = {
+    output: {
+        publicPath: '/',
+    },
     devServer: {
+        historyApiFallback: true,
         inline:true,
         port: 3333
     },
