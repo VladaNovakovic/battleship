@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Battlefield from './game/Battlefield/Battlefield';
+import {Game} from './game';
 import {NewGame} from './new-game';
-import WelcomeMessage from './home-page/HomePage';
-import Navigation from './ui-elements/Navigation/Navigation';
+import {HomePage} from './home-page';
+import {Navigation} from './ui-elements';
 
 const App = function () {
     return (
@@ -11,9 +11,9 @@ const App = function () {
             <div>
                 <Navigation />
                 <Switch>
-                    <Route path="/game" component={Battlefield} />
+                    <Route path="/game" component={Game} />
                     <Route path="/new-game" component={NewGame} />
-                    <Route path="/" component={WelcomeMessage} />
+                    <Route path="/" component={HomePage} />
                 </Switch>
             </div>
         </BrowserRouter>
