@@ -1,9 +1,9 @@
 import React from 'react';
 
-const WelcomeMessage = function () {
+const HomePage = function () {
     return (
         <h2 key={1}>Hello there</h2>
     );
 };
 
-export default WelcomeMessage;
+export default HomePage;

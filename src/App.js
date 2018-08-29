@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Battlefield from './components/Battlefield/Battlefield';
-import NewGame from './components/NewGame/NewGame';
-import WelcomeMessage from './components/WelcomeMessage/WelcomeMessage';
-import Navigation from './components/Navigation/Navigation';
+import Battlefield from './game/Battlefield/Battlefield';
+import {NewGame} from './new-game';
+import WelcomeMessage from './home-page/HomePage';
+import Navigation from './ui-elements/Navigation/Navigation';
 
 const App = function () {
     return (

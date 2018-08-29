@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import './_field.scss';
+import './Field.scss';
 
 class Field extends Component {
     static propTypes = {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Field from '../Field/Field';
-import './_board.scss';
+import './Board.scss';
 
 class Board extends Component {
     static propTypes = {

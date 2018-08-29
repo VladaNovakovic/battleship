@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Board from '../Board/Board';
-import './_my_board.scss';
+import Board from '../../ui-elements/Board/Board';
+import './MyBoard.scss';
 
 class MyBoard extends Component {
     static propTypes = {

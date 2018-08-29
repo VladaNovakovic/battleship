@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Board from '../ui-elements/Board/Board';
 /* eslint-disable */
 
 class NewGame extends Component {
@@ -18,6 +19,7 @@ class NewGame extends Component {
     };
 
     render() {
+        const submarines = [this.state.singleBlock, this.state.dualBlock, this.state.tripleBlock, this.state.quatreBlock];
         return (
             <div className="battleship-c-new-game" key={1}>
                 <h1>New Game</h1>
@@ -45,6 +47,10 @@ class NewGame extends Component {
                     <input className="battleship-c-new-game__input" />
                     <input className="battleship-c-new-game__input" />
                     <input className="battleship-c-new-game__input" />
+                </div>
+
+                <div className="battleship-c-new-game-board">
+                    <Board mySubmarines={submarines} />
                 </div>
             </div>
         );

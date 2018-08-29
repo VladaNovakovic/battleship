@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Board from '../Board/Board';
-import './_target_board.scss';
+import Board from '../../ui-elements/Board/Board';
+import './TargetBoard.scss';
 
 class TargetBoard extends Component {
     static propTypes = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import MyBoard from '../MyBoard/MyBoard';
-import TargetBoard from '../TargetBoard/TargetBoard';
+import MyBoard from '../my-board/MyBoard';
+import TargetBoard from '../target-board/TargetBoard';
 
 const Battlefield = function () {
     const mySubmarines = [['a2'], ['c4', 'b4'], ['b1', 'c1', 'd1', 'e1'], ['e3', 'e4', 'e5']];
