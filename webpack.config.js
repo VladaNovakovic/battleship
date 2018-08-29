@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-let autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
     output: {
@@ -9,6 +10,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         inline:true,
+        hot: true,
         port: 3333
     },
     module: {
@@ -31,6 +33,7 @@ module.exports = {
             {
                 test: /\.html$/,
                 include: /src/,
+                exclude: /node_modules/,
                 use: [{
                     loader: "html-loader"
                 }]
@@ -38,9 +41,36 @@ module.exports = {
             {
                 test: /\.css$|\.scss$/,
                 include: /src/,
+                exclude: /node_modules/,
+                use: [
+                    // MiniCssExtractPlugin.loader,
+                    // { loader: MiniCssExtractPlugin.loader },
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMaps: true,
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [autoprefixer]
+                        }
+                    },
+                    { loader: 'resolve-url-loader' },
+                    { loader: 'sass-loader' }
+                ]
+                /*
                 loader: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    // MiniCssExtractPlugin.loader,
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMaps: true,
+                        },
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -48,16 +78,23 @@ module.exports = {
                         }
                     },
                     'resolve-url-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
                 ],
+                */
             }
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin("styles.css"),
+        // new MiniCssExtractPlugin("styles.css"),
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
-        }),
+        })
     ]
 };

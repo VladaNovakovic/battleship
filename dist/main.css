@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+}
+.battleship-c-field {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-color: #afafaf;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+}
+
+.battleship-c-field:hover {
+  background-color: #afffaf;
+}
+
+.battleship-c-field__is-my-submarine {
+  background-color: #ffafaf;
+}
+
+.battleship-c-field__is-miss {
+  background-color: #afafff;
+}
+
+.battleship-c-field__is-hit {
+  background-color: #ff5d5d;
+}
+.battleship-c-board {
+  display: inline-block;
+  width: 150px;
+  margin: 20px;
+  cursor: pointer;
+}
+.battleship-c-my-board {
+  display: inline-block;
+}
+.battleship-c-target-board {
+  display: inline-block;
+}
+.battleship-c-navigation {
+  line-height: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.battleship-c-navigation__link {
+  display: inline-block;
+  padding: 0 20px;
+}

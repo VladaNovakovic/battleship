@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Board from '../ui-elements/Board/Board';
+import {Board} from '../ui-elements';
+import './NewGame.scss';
 /* eslint-disable */
 
 class NewGame extends Component {
@@ -21,7 +22,7 @@ class NewGame extends Component {
     render() {
         const submarines = [this.state.singleBlock, this.state.dualBlock, this.state.tripleBlock, this.state.quatreBlock];
         return (
-            <div className="battleship-c-new-game" key={1}>
+            <div className="battleship-c-new-game something" key={1}>
                 <h1>New Game</h1>
                 <div className="battleship-c-new-game__row">
                     <label className="battleship-c-new-game__label">1 block submarine</label>
