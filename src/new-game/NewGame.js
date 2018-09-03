@@ -34,19 +34,14 @@ class NewGame extends Component {
         }
     };
 
-    validateSubmarines = () => {
-        console.log('validate submarines');
-        console.log(this.validateSingleSubmarine(this.state.singleBlock));
-        console.log(this.validateSingleSubmarine(this.state.dualBlock));
-        console.log(this.validateSingleSubmarine(this.state.tripleBlock));
-        console.log(this.validateSingleSubmarine(this.state.quatreBlock));
-
-        return (Math.random() > 0.5);
-    };
+    validateSubmarines = () => this.validateSingleSubmarine(this.state.singleBlock)
+            && this.validateSingleSubmarine(this.state.dualBlock)
+            && this.validateSingleSubmarine(this.state.tripleBlock)
+            && this.validateSingleSubmarine(this.state.quatreBlock);
 
     validateSingleSubmarine =
             submarineFields => this.areSubmarineFieldsValid(submarineFields)
-                && this.isSubmarineStreight(submarineFields);
+                && this.isSubmarineStraight(submarineFields) && this.areSubmarineFieldsConnected(submarineFields);
 
     areSubmarineFieldsValid = submarineFields => submarineFields.reduce((accumulator, field) => {
         const coordinates = field.split('');
@@ -55,10 +50,23 @@ class NewGame extends Component {
 
     areSubmarineFieldsConnected = submarineFields => {
         console.log(submarineFields);
-        return true;
+        let previousField = null;
+        let areFieldsConnected = true;
+        submarineFields.forEach(field => {
+            const currentField = field.split('');
+            if (previousField !== null) {
+                areFieldsConnected = areFieldsConnected
+                    && (Math.abs(this.rows.indexOf(currentField[0]) - this.rows.indexOf(previousField[0])) === 1
+                        || Math.abs(currentField[1] - previousField[1]) === 1);
+            }
+            previousField = currentField;
+        });
+
+        // console.log(areFieldsConnected ? 'fields are connected' : 'fields are NOT connected');
+        return areFieldsConnected;
     };
 
-    isSubmarineStreight = submarineFields => {
+    isSubmarineStraight = submarineFields => {
         let inColumn = true;
         let inRow = true;
         const firstColumn = submarineFields[0].split('')[0];
