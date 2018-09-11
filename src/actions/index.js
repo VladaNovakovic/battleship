@@ -1,7 +1,1 @@
-let nextToDoId = 0;
-
-export const addTodo = text => ({
-    type: 'ADD_TODO',
-    id: nextToDoId++,
-    text,
-});
+export {default as GameActions} from './GameActions';
